@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PUSH_SWAP.H                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 19:30:58 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/01/23 15:31:30 by sben-tay         ###   ########.fr       */
+/*   Created: 2023/11/14 04:07:57 by sben-tay          #+#    #+#             */
+/*   Updated: 2023/12/04 17:21:54 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "printf.h"
 
-# include "../LIBFT/libft.h"
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
 
+	i = 0;
+	while (str[i])
+	{
+		i++;
+	}
+	return (i);
+}
 
-#endif
+// int main (int argc, char **argv)
+// {
+// 	(void) argc;
+// 	printf("La taille de mon string est de %d", ft_strlen(argv[1]));
+// }

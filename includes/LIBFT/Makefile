@@ -6,7 +6,7 @@
 #    By: sben-tay <sben-tay@student.42.paris.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/14 04:09:14 by sben-tay          #+#    #+#              #
-#    Updated: 2024/01/22 20:15:36 by sben-tay         ###   ########.fr        #
+#    Updated: 2024/01/23 22:47:24 by sben-tay         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,24 +39,24 @@ CFLAGS			= -Wall -Wextra -Werror
 
 NAME			= libft.a
 
-all:			$(NAME)
+all:			$(NAME) $(BONUS_OBJS)
 
-$(NAME):		$(OBJS) ${HEADER}
+$(NAME):		$(OBJS)
 				ar rc $(NAME) $(OBJS)
-				ranlib ${NAME}
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	cc -nostartfiles -shared -o libft.so $(OBJS)
+				ranlib $(NAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-				$(RM) $(OBJS) $(BONUS_OBJS)
+	$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean:			clean
-				$(RM) $(NAME)
+	$(RM) $(NAME)
 
 re:				fclean all
 
-bonus:			$(OBJS) $(BONUS_OBJS)
+bonus:			$(BONUS_OBJS)
 				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 .PHONY:			all clean fclean re bonus
