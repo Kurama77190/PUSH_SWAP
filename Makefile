@@ -3,39 +3,47 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sben-tay <sben-tay@student.42.paris.fr>    +#+  +:+       +#+         #
+#    By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 19:43:50 by sben-tay          #+#    #+#              #
-#    Updated: 2024/01/22 20:44:58 by sben-tay         ###   ########.fr        #
+#    Updated: 2024/01/23 17:53:39 by sben-tay         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = srcs/parsing.c \
-
-OBJ = $(SRC:.c=.o)
-
+# Définitions de base
 CC = cc
 CFLAGS = -g -Wall -Wextra -Werror
-
 NAME = push_swap
+LIBFT = ./LIBFT
+LIBFT_A = $(LIBFT)/libft.a
+SRC = $(wildcard srcs/*.c)
+OBJ = $(SRC:.c=.o)
+	
+# Règle principale
+all: libft $(NAME)
+# Règle pour créer votre programme principal
+$(NAME): libft $(OBJ)
+	$(CC) $(CFLAGS) $(SRC) -L$(LIBFT) -lft -o $(NAME)
 
-all : libft $(NAME)
-
-
+# Règle pour compiler libft
 libft:
-	$(MAKE) -C LIBFT -f Makefile
+	$(MAKE) -C $(LIBFT) bonus
 
-$(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $@
+# Règle pour créer l'exécutable push_swap
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -L$(LIBFT) -lft -o $(NAME)
 
-clean :
-	$(MAKE) -C LIBFT -f Makefile clean
-	$(RM) $(OBJ)
+# Règles pour nettoyer les fichiers objets et l'exécutable
+clean:
+	$(MAKE) -C $(LIBFT) clean
+	rm -f $(OBJ)
 
-fclean : clean
-	$(MAKE) -C LIBFT -f Makefile fclean
-	$(RM) $(NAME)
+fclean: clean
+	$(MAKE) -C $(LIBFT) fclean
+	rm -f $(NAME)
 
-re : fclean all
+# Règle pour recompiler
+re: fclean all
 
-.PHONY : all clean fclean re libft
+# Pour éviter les conflits avec des fichiers du même nom
+.PHONY: all clean fclean re libft

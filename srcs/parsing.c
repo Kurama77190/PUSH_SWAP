@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sben-tay <sben-tay@student.42.paris.fr>    +#+  +:+       +#+        */
+/*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:13:36 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/01/22 20:18:09 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/01/23 15:45:34 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,3 @@
 
 // char *swap_a(t);
 
-
-
-int main(void)
-{
-	ft_putstr_fd("salut", 1);
-}

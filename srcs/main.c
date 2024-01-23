@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PUSH_SWAP.H                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 19:30:58 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/01/23 15:31:30 by sben-tay         ###   ########.fr       */
+/*   Created: 2024/01/23 15:46:19 by sben-tay          #+#    #+#             */
+/*   Updated: 2024/01/23 15:47:51 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include "../LIBFT/libft.h"
+#include "../LIBFT/libft.h"
 
 
-#endif
+int main(void)
+{
+	ft_putstr_fd("test 1 ok test 2 ok\n", 1);
+}
