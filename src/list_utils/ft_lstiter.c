@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sben-tay <sben-tay@student.42.paris.fr>    +#+  +:+       +#+        */
+/*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 15:46:19 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/01/23 23:20:13 by sben-tay         ###   ########.fr       */
+/*   Created: 2023/11/14 04:05:45 by sben-tay          #+#    #+#             */
+/*   Updated: 2024/01/29 18:05:53 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
-
-int main(void)
+void	ft_lstiter(t_list *lst, void (*f)(void*))
 {
-	ft_putchar_fd('c', 2);
-	ft_printf("\n");
-	ft_putstr_fd("test 1 ok test 2 ok\n", 1);
-	ft_printf("%s", "salut le test de printf est valider ! \n");
+	if (lst == NULL)
+		return ;
+	while (lst != NULL)
+	{
+		(*f)(lst->content);
+		lst = lst->next;
+	}
 }

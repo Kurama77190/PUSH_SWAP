@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sben-tay <sben-tay@student.42.paris.fr>    +#+  +:+       +#+        */
+/*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 04:06:12 by sben-tay          #+#    #+#             */
-/*   Updated: 2023/11/14 04:06:14 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/01/29 18:05:59 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 t_list	*ft_lstnew(void *content)
 {

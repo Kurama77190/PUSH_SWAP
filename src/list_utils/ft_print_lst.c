@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_print_lst.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sben-tay <sben-tay@student.42.paris.fr>    +#+  +:+       +#+        */
+/*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 04:05:51 by sben-tay          #+#    #+#             */
-/*   Updated: 2023/11/14 04:05:53 by sben-tay         ###   ########.fr       */
+/*   Created: 2024/01/29 18:03:08 by sben-tay          #+#    #+#             */
+/*   Updated: 2024/01/29 18:50:52 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_print_list(t_list *test)
 {
-	if (lst == NULL)
-		return (NULL);
-	while (lst->next != NULL)
+	t_list *print = test;
+
+	while(print)
 	{
-		lst = lst->next;
+		printf("%d ", *(int *)(print->content));
+		print = print->next;
 	}
-	return (lst);
+	printf("NULL\n");
 }

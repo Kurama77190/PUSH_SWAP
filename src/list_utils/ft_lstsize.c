@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sben-tay <sben-tay@student.42.paris.fr>    +#+  +:+       +#+        */
+/*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 19:30:58 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/01/23 23:24:42 by sben-tay         ###   ########.fr       */
+/*   Created: 2023/11/14 04:06:18 by sben-tay          #+#    #+#             */
+/*   Updated: 2024/01/29 18:06:02 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "./LIBFT/libft.h"
-# include "./PRINTF/ft_printf.h"
-
-typedef struct s_pile_a
+int	ft_lstsize(t_list *lst)
 {
-	int					content;
-	struct s_pile_a		*next;
-}						t_pile_a;
+	size_t	i;
 
-#endif
+	i = 0;
+	if (lst == NULL)
+		return (0);
+	while (lst != NULL)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
+}

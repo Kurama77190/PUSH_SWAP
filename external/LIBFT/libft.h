@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sben-tay <sben-tay@student.42.paris.fr>    +#+  +:+       +#+        */
+/*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 04:09:01 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/01/23 23:23:23 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/01/29 17:11:03 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,7 @@
 # include <string.h>
 # include <limits.h>
 
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
+
 
 int				ft_atoi(const char *str);
 
