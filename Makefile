@@ -6,7 +6,7 @@
 #    By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 19:43:50 by sben-tay          #+#    #+#              #
-#    Updated: 2024/01/29 18:49:34 by sben-tay         ###   ########.fr        #
+#    Updated: 2024/01/30 11:25:22 by sben-tay         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CFLAGS = -g -Wall -Wextra -Werror
 CPPFLAGS = -I./include
 BUILD = ./build
 PRINTF = ./external/PRINTF
-SRC = $(wildcard src/*.c) 
+SRC = $(wildcard src/*.c)
 OBJ = $(SRC:src/%.c=$(BUILD)/%.o)
 
 # Crée le dossier BUILD si nécessaire
@@ -42,7 +42,6 @@ $(BUILD)/%.o: src/%.c
 clean:
 	$(MAKE) -C $(PRINTF) clean
 	rm -f $(BUILD)/*.o
-	rm -rf $(BUILD)
 
 fclean: clean
 	$(MAKE) -C $(PRINTF) fclean

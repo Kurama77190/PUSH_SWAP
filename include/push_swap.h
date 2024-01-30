@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:30:58 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/01/29 18:43:43 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/01/30 16:56:13 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
+	struct s_list	*prev;
 }					t_list;
 
 //structure qui point sur le dernier ellement de ma liste.
@@ -31,6 +32,20 @@ typedef struct	LastNodeTracker
 {
 	t_list		*lastNode;
 }				LastNodeTracker;
+
+void	reverse_rotate_rrr(t_list **stack_a, t_list **stack_b,\
+ LastNodeTracker *tracker_a, LastNodeTracker *tracker_b);
+
+void	reverse_rotate_b(t_list **stack_b, LastNodeTracker *tracker_b);
+
+void	reverse_rotate_a(t_list	**stack_a, LastNodeTracker *tracker_a);
+
+void	rotate_rr(t_list **stack_a, t_list **stack_b,\
+LastNodeTracker *tracker_a, LastNodeTracker *tracker_b);
+
+void	rotate_b(t_list **stack_b, LastNodeTracker *tracker);
+
+void	rotate_a(t_list **stack_a, LastNodeTracker *tracker);
 
 void	ft_putstr_fd(char *s, int fd);
 

@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:46:19 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/01/29 18:59:35 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/01/30 17:00:48 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,14 @@ int	main(void)
 	*d = 40;
 	*e = 50;
 	*f = 60;
+
+	int test = 100;
+	int test1 = 100;
 	
 
 
 	
-	t_list	*stack_a = ft_lstnew(&a);
+	t_list	*stack_a = ft_lstnew(a);
 	tracker_a->lastNode = stack_a;
 	ft_lstaddback(tracker_a, &stack_a, ft_lstnew(b));
 	ft_lstaddback(tracker_a, &stack_a, ft_lstnew(c));
@@ -48,8 +51,18 @@ int	main(void)
 	ft_lstaddback(tracker_b, &stack_b, ft_lstnew(e));
 	ft_lstaddback(tracker_b, &stack_b, ft_lstnew(f));
 
-	ft_printf("liste stack_a : \n");
+	ft_printf("liste stack_a_b : \n");
 	ft_print_list(stack_a);
+	ft_print_list(stack_b);
+	reverse_rotate_rrr(&stack_a, &stack_b, tracker_a, tracker_b);
+	ft_printf("liste stack_a_b : \n");
+	ft_print_list(stack_a);
+	ft_print_list(stack_b);
+	ft_lstaddback(tracker_a, &stack_a, ft_lstnew(&test));
+	ft_lstaddback(tracker_b, &stack_b, ft_lstnew(&test1));
+	ft_printf("liste stack_a_b : \n");
+	ft_print_list(stack_a);
+	ft_print_list(stack_b);
 }
 
 // printf("----------------------------\n");
@@ -57,3 +70,5 @@ int	main(void)
 // 	print_lst(stack_a);
 // }
 // retester la fonction swap_ss;
+// les fonctions sont pret maintenant trouver l algorithme a utiliser !
+//
