@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:30:58 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/01/30 16:56:13 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/01/31 12:28:06 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdio.h>
 # include <string.h>
 # include <limits.h>
+# include <stdbool.h>
+
 # include "../external/PRINTF/ft_printf.h"
 
 typedef struct s_list
