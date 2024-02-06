@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:30:58 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/01/31 12:28:06 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/06 17:05:35 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <string.h>
 # include <limits.h>
 # include <stdbool.h>
+
+# define INT_OVERFLOW 2147483648
 
 # include "../external/PRINTF/ft_printf.h"
 
@@ -34,6 +36,10 @@ typedef struct	LastNodeTracker
 {
 	t_list		*lastNode;
 }				LastNodeTracker;
+
+long	ft_atoi(char *str);
+
+char	**ft_split(char const *s, char c);
 
 void	reverse_rotate_rrr(t_list **stack_a, t_list **stack_b,\
  LastNodeTracker *tracker_a, LastNodeTracker *tracker_b);
