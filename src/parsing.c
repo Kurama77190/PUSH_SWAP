@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:13:36 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/01/29 18:20:55 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/08 15:55:44 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	swap_a(t_list *stack_a)
 {
 	if (stack_a && stack_a->next)
 	{
-		ft_swap((int *)(stack_a->content), (int *)(stack_a->next->content));
+		ft_swap(&stack_a->content, &stack_a->next->content);
 		ft_putstr_fd("sa\n", 1);
 		return ;
 	}
@@ -46,7 +46,7 @@ void	swap_b(t_list *stack_b)
 {
 	if (stack_b && stack_b->next)
 	{
-		ft_swap((int *)(stack_b->content), (int *)(stack_b->next->content));
+		ft_swap(&stack_b->content, &stack_b->next->content);
 		ft_putstr_fd("sb\n", 1);
 		return ;
 	}
@@ -62,8 +62,8 @@ void	swap_ss(t_list	*stack_a, t_list *stack_b)
 {
 	if((stack_a && stack_a->next) && (stack_b && stack_b->next))
 	{
-		ft_swap((int *)(stack_a->content), (int *)(stack_a->next->content));
-		ft_swap((int *)(stack_b->content), (int *)(stack_b->next->content));
+		ft_swap(&stack_a->content, &stack_a->next->content);
+		ft_swap(&stack_b->content, &stack_b->next->content);
 		ft_putstr_fd("ss\n", 1);
 	}
 	else

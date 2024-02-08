@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 18:03:08 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/01/29 18:50:52 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/08 15:52:54 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_print_list(t_list *test)
 
 	while(print)
 	{
-		printf("%d ", *(int *)(print->content));
+		printf("%d ", print->content);
 		print = print->next;
 	}
 	printf("NULL\n");
