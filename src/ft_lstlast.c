@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/08 17:42:42 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/08 17:55:32 by sben-tay         ###   ########.fr       */
+/*   Created: 2024/02/09 16:25:48 by sben-tay          #+#    #+#             */
+/*   Updated: 2024/02/09 16:25:57 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstclear(t_list **lst, int (*del)(void *))
-{
-	t_list	*current;
 
-	if (!del || !lst || !*lst)
-		return ;
-	while (lst != NULL && *lst != NULL)
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (lst == NULL)
+		return (NULL);
+	while (lst->next != NULL)
 	{
-		current = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = current;
+		lst = lst->next;
 	}
+	return (lst);
 }

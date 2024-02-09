@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:28:50 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/08 17:16:08 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/09 14:58:39 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 int	ft_atoi(char *str)
 {
-	size_t	i;
+	size_t		i;
 	long long	nb;
-	int		sign;
-
+	int			sign;
+	
 	i = 0;
 	nb = 0;
 	sign = 1;

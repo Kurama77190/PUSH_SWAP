@@ -6,111 +6,142 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:46:19 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/08 18:58:28 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/09 16:46:11 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
+bool 	ft_is_digit(char **split);
+int		ft_strcmp(char *s1, char *s2);
+bool	ft_is_double(char **split);
 
+//----------------------------------------------------
+// IMPLEMENTE SECURITY
+//----------------------------------------------------
 
-// bool	ft_secure(t_list *stack_a)
-// {
-// 	if(ft_is_double(stack_a))
-// 		return false;
-// 	if(!ft_is_digit(stack_a))
-// 		return false;
-// 	if(!ft_is_int(stack_a))
-// 		return false;
-// 	else
-// 		return true;
-// }
-
-bool	ft_is_double(t_list *stack_a)
+bool	ft_secure(char **split)
 {
-	if (!stack_a)
-		return false;
-
-	t_list	*index;
-	t_list 	*checker;
-	
-	index = stack_a;
-	while(index)
+	if(!ft_is_digit(split))
 	{
-		checker = stack_a;
-		while(checker)
-		{
-			if(index->content == checker->content && index != checker)
-				return true;
-			checker = checker->next;
-		}
-		index = index->next;
-	}
-	return false;
+		free(split);
+		ft_exit();
+		return false;
+	}	
+	else
+		return true;
 }
 
-bool	ft_is_digit(t_list *stack_a);
-
-bool	ft_is_int(t_list *stack_a)
+bool ft_is_digit(char **split)
 {
-	if (!stack_a)
-		return false;
-	
-	t_list	*check;
+    int	i;
+    int	j;
 
-	check = stack_a;
-	while(check)
+	i = 0;
+    while (split[i])
 	{
-		if (!(check->content >= INT_MIN && check->content <= INT_MAX))
-			return false;
-		check = check->next;
-	}
+		j = 0;
+        if (split[i][j] == '+' || split[i][j] == '-')
+		{
+            j++;
+            if (split[i][j] == '\0')
+                return false;
+        }
+        while (split[i][j])
+		{
+            if (split[i][j] < '0' || split[i][j] > '9')
+				return false;
+            j++;
+    	}
+        i++;
+	}    
 	return true;
 }
-void	implemente_stack(t_list *stack_a, char **argv)
+
+int	ft_strcmp(char *s1, char *s2)
 {
-	char **split_stack = ft_split(argv[1], ' ');
-	LastNodeTracker	*tracker_a;
-	int i = 0;
-	
-	tracker_a = malloc(sizeof(t_list));
-	if(!tracker_a)
+	int	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
 	{
-		free(split_stack);	
-		return NULL;
-	}
-	stack_a = ft_lstnew(ft_atoi(split_stack[i++]));
-	tracker_a->lastNode = stack_a;
-	while(split_stack[i])
-	{
-		ft_lstaddback(tracker_a, &stack_a, ft_lstnew(ft_atoi(split_stack[i])));
 		i++;
 	}
-	return (stack_a);	
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
-t_list	*ft_secure_stack(int argc, char **argv)
+
+bool ft_is_double(char **split)
 {
-	(void) argc;
-	t_list	*stack_a;
-	implemente_stack(stack_a);
-	// ft_is_digit(split_stack);
+    int	i;
+	int	j;
 
-	if (ft_is_double(stack_a))
+	i = 0;
+    while (split[i])
 	{
-		ft_lstclear(&stack_a, free);	
-		ft_exit();
+        j = i + 1;
+        while (split[j])
+		{
+            if (ft_strcmp(split[i], split[j]) == 0)
+                return true;
+            j++;
+        }
+        i++;
+    }
+    return false;
+}
+//----------------------------------------------------
+//IMPLEMENTE STACK_A
+//-----------------------------------------------------
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	size_t			i;
+	size_t			j;
+	char			*str;
+
+	i = 0;
+	j = 0;
+	if (!s1 || !s2)
+		return (NULL);
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
+	if (!str)
+		return (NULL);
+	while (s1[i])
+	{
+		str[i] = s1[i];
+		i++;
 	}
-	return stack_a;
+	while (s2[j])
+	{
+		str[i] = s2[j];
+		j++;
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
 
+t_list *implemente_a(int argc, char **argv)
+{
+	(void)argc;
+	char **split_a;
+	t_list *stack_a;
+	int	i;
 
+	i = 0;
+	split_a = ft_split(argv[1], ' ');
+	stack_a = ft_lstnew(ft_atoi(split_a[i]));
+	while(split_a[++i])
+	{
+		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(split_a[i])));
+	}
+	ft_secure(split_a);
+	free(split_a);
+	return (stack_a);
+}
 
 int main(int argc, char **argv)
 {
 	(void)argc;
-	t_list	*stack_a;
-	stack_a = ft_secure_stack(argc, argv);
-	ft_print_list(stack_a);
-	ft_printf("la valeur de retour de ft_is_double est : %d\n", ft_is_double(stack_a));
-	ft_printf("la valeur de retour de ft_is_int : %d\n", ft_is_int(stack_a));
+	t_list *a = implemente_a(argc, argv);
+	ft_print_list(a);
 }
