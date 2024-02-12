@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:46:19 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/12 20:47:18 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/12 23:23:42 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_exit(void);
 bool 	ft_is_digit(char **split);
-int		ft_strcmp(char *s1, char *s2);
 bool	ft_is_double(t_list *stack_a);
 void	free_split(char **strs);
 bool	is_sorted(t_list *stack_a);
@@ -187,7 +186,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 t_list *implemente_a(int argc, char **argv)
 {
-	(void)argc;
+	(void)argc; // gerer le cas de plusieurs arguments et les concatener
 	char	**split_a;
 	t_list	*stack_a;
 	int		i;
@@ -206,10 +205,13 @@ t_list *implemente_a(int argc, char **argv)
 
 // DERNIERE ETAPE : gerer le cas de plusieurs arguments pour implementer la stack_a
 // NE PAS OUBLIER de rajouter les fonctions dans mon header
+// reduire la taille de bool	ft_atoi_overflow(char *str) (GESTION OVERFLOW OPERATIONNEL !)
 
+// la gestion de memoire est ok en cas d erreur !
 int main(int argc, char **argv)
 {
-	(void)argc;
+	if (argc == 1 || !argv[1][0]) // mon main segfault quand il y a seulementsdes whitesspace en arguments
+		return (0);
 	t_list *a = implemente_a(argc, argv);
 	ft_print_list(a);
 	ft_printf("le retour de ft_is_double : %d\n", ft_is_double(a));
