@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:30:58 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/09 16:47:29 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/12 20:27:30 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,13 @@ typedef struct s_list
  	struct s_list	*prev;
 }					t_list;
 
+bool    ft_atoi_overflow(char *str);
+
+bool	ft_is_atoi_overflow(char **strs);
 
 bool	ft_is_digit(char **split);
 
-int		ft_strcmp(char *s1, char *s2);
-
-bool	ft_is_double(char **split);
+bool	ft_is_double(t_list	*stack_a);
 
 int		ft_atoi(char *str);
 

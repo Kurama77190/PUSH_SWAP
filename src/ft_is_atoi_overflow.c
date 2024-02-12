@@ -1,43 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_is_atoi_overflow.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 15:28:50 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/09 14:58:39 by sben-tay         ###   ########.fr       */
+/*   Created: 2024/02/12 20:14:44 by sben-tay          #+#    #+#             */
+/*   Updated: 2024/02/12 20:28:26 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+bool    ft_atoi_overflow(char *str);
 
-int	ft_atoi(char *str)
+bool	ft_is_atoi_overflow(char **strs)
 {
-	size_t		i;
+	int	i;
+
+	i = 0;
+	while(strs[i])
+	{
+        if(ft_atoi_overflow(strs[i]))
+            return true;
+        i++;
+    }
+    return false;
+}
+bool    ft_atoi_overflow(char *str)
+{
+	size_t		len;
 	long long	nb;
 	int			sign;
-	
-	i = 0;
+
+	len = 0;
 	nb = 0;
 	sign = 1;
-	while ((str[i] > 8 && str[i] < 14) || str[i] == 32)
-		i++;
-	if (str[i] == '-')
+	while ((str[len] > 8 && str[len] < 14) || str[len] == 32)
+		len++;
+	if (str[len] == '-')
 	{
 		sign *= -1;
-		i++;
+		len++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	else if (str[len] == '+')
+		len++;
+	while (str[len] >= '0' && str[len] <= '9')
 	{
-		nb = nb * 10 + (str[i] - '0');
-		i++;
+		nb = nb * 10 + (str[len] - '0');
+		len++;
 	}
 	if(nb * sign >= INT_MIN && nb * sign <= INT_MAX)
-		return ((int)nb * sign);
-	ft_exit();
-	return (0);
+		return false;
+	return true;
 }
