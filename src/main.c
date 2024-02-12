@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:46:19 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/12 23:23:42 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/13 00:25:50 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ bool	ft_is_double(t_list *stack_a);
 void	free_split(char **strs);
 bool	is_sorted(t_list *stack_a);
 void    ft_lstclear(t_list **lst);
+void	ft_error_clear(char **split, t_list *stack_a);
 
 //----------------------------------------------------
 // IMPLEMENTE SECURITY - PARSING
@@ -31,25 +32,27 @@ void	ft_exit(void)
 	exit(1);
 }
 
+void	ft_clear_error(char **split, t_list **stack_a)
+{
+	free_split(split);
+	ft_lstclear(stack_a);
+	ft_exit();
+}
+
 void	ft_secure(char **split, t_list *stack_a)
 {
 	if(!ft_is_digit(split))
-	{
-		free_split(split);
-		ft_lstclear(&stack_a);
-		ft_exit();
-	}
+		ft_clear_error(split, &stack_a);
 	else if (ft_is_atoi_overflow(split))
-	{
-		free_split(split);
-		ft_lstclear(&stack_a);
-		ft_exit();
-	}
+		ft_clear_error(split, &stack_a);
 	else if(ft_is_double(stack_a))
+		ft_clear_error(split, &stack_a);
+	else if(is_sorted(stack_a))
 	{
 		free_split(split);
 		ft_lstclear(&stack_a);
-		ft_exit();
+		ft_putstr_fd("is sorted !\n", 1);
+		exit(1);
 	}
 	else
 		return ;
@@ -193,10 +196,11 @@ t_list *implemente_a(int argc, char **argv)
 
 	i = 0;
 	split_a = ft_split(argv[1], ' ');
-	stack_a = ft_lstnew(ft_atoi(split_a[i]));
-	while(split_a[++i])
+	stack_a = ft_lstnew(ft_atoi(split_a[i++]));
+	while(split_a[i])
 	{
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(split_a[i])));
+		i++;
 	}
 	ft_secure(split_a, stack_a);
 	free_split(split_a);
