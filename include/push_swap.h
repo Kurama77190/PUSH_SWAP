@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:30:58 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/12 20:27:30 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/13 15:25:05 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct s_list
 	struct s_list	*next;
  	struct s_list	*prev;
 }					t_list;
+
+bool	ft_check_overflow(char *str, long long nb, int sign, size_t len);
 
 bool    ft_atoi_overflow(char *str);
 

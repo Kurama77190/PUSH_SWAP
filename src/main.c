@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:46:19 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/13 01:35:59 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/13 18:54:23 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,20 @@ bool	ft_is_double(t_list *stack_a);
 void	free_split(char **strs);
 bool	is_sorted(t_list *stack_a);
 void    ft_lstclear(t_list **lst);
-void	ft_error_clear(char **split, t_list *stack_a);
+void	ft_clear_error(char **split, t_list **stack_a);
+bool	ft_is_space(char c);
+bool	ft_only_space(char *str);
 
-//----------------------------------------------------
-// IMPLEMENTE SECURITY - PARSING
-//----------------------------------------------------
+/* ********************************** */
+/* 	 IMPLEMENTE SECURITY - PARSING	  */
+/* ********************************** */
 
 // ajouter la verification des doublons dans la stack.
 
 void	ft_exit(void)
 {
 	ft_putstr_fd("Error\n", 2);
-	exit(1);
+	exit(EXIT_FAILURE);
 }
 
 void	ft_clear_error(char **split, t_list **stack_a)
@@ -52,7 +54,7 @@ void	ft_secure(char **split, t_list *stack_a)
 		free_split(split);
 		ft_lstclear(&stack_a);
 		ft_putstr_fd("is sorted !\n", 1);
-		exit(1);
+		exit(EXIT_SUCCESS);
 	}
 	else
 		return ;
@@ -140,10 +142,6 @@ void    ft_lstclear(t_list **lst)
     *lst = NULL;
 }
 
-//----------------------------------------------------
-//IMPLEMENTE STACK_A
-//-----------------------------------------------------
-
 bool	is_sorted(t_list *stack_a)
 {
 	t_list	*sorted;
@@ -158,6 +156,27 @@ bool	is_sorted(t_list *stack_a)
 	}
 	return true;
 }
+
+bool	ft_only_space(char *str)
+{
+	int	i;
+	i = 0;
+	while(str[i])
+	{
+		if(!ft_is_space(str[i]))
+			return false;
+		i++;
+	}
+	return true;
+}
+bool	ft_is_space(char c)
+{
+	return (c == '\f' || c == '\n' || c == '\r' || c == '\t' || c == '\v' || c == 32);
+}
+
+/* *************************** */
+/* 	 	IMPLEMENTE STACK_A	   */
+/* *************************** */
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -190,17 +209,17 @@ char	*ft_strjoin(char const *s1, char const *s2)
 t_list *implemente_a(int argc, char **argv)
 {
 	(void)argc; // gerer le cas de plusieurs arguments et les concatener
+	if(ft_only_space(argv[1]))
+		ft_exit();
 	char	**split_a;
 	t_list	*stack_a;
 	int		i;
 
 	i = 0;
 	split_a = ft_split(argv[1], ' ');
-	while(split_a[i])
-	{
+	stack_a = ft_lstnew(ft_atoi(split_a[i]));
+	while(split_a[++i])
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(split_a[i])));
-		i++;
-	}
 	ft_secure(split_a, stack_a);
 	free_split(split_a);
 	return (stack_a);
@@ -208,15 +227,66 @@ t_list *implemente_a(int argc, char **argv)
 
 // DERNIERE ETAPE : gerer le cas de plusieurs arguments pour implementer la stack_a
 // NE PAS OUBLIER de rajouter les fonctions dans mon header
-// reduire la taille de bool	ft_atoi_overflow(char *str) (GESTION OVERFLOW OPERATIONNEL !)
 
-// la gestion de memoire est ok en cas d erreur !
+// la gestion de memoire est OK en cas d erreur !
+
+// prototype sous le main en commentaire a terminer !
+
 int main(int argc, char **argv)
 {
-	if (argc == 1 || !argv[1][0]) // mon main segfault quand il y a seulementsdes whitesspace en arguments
+	if (argc == 1 || !argv[1][0])
 		return (0);
 	t_list *a = implemente_a(argc, argv);
 	ft_print_list(a);
-	ft_printf("le retour de ft_is_double : %d\n", ft_is_double(a));
 	ft_lstclear(&a);
 }
+//-----------------------------------------------------------------------
+
+// size_t	ft_strlenn(char *str)
+// {
+// 	size_t	i;
+
+// 	i = 0;
+// 	while(str[i])
+// 		i++;
+// 	return (i);
+// }
+
+// size_t ft_strslen(char **strs)
+// {
+// 	size_t	len;
+// 	int		i;
+
+// 	len = 0;
+// 	i = 0;
+// 	while(strs[i])
+// 	{
+// 		len = len + ft_strlenn(strs[i]) - ft_strlen;
+// 		i++;
+// 	}
+// 	return (len);
+// }
+
+
+
+
+// ft_strjoin(int argc, char **argv)
+// {
+// 	if (argc  > 2)
+// 	{
+// 		int	i;
+
+// 		i = argc;
+// 		while(i > 2)
+// 		{
+			
+// 		}
+		
+// 	}
+// }
+
+// int main (int argc, char **argv)
+// {
+// 	(void)argc;
+// 	printf("la taille de tous mes tableaux d arguments : %zu\n", ft_strslen(argv));
+// }
