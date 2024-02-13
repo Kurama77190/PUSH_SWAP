@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:46:19 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/13 00:25:50 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/13 01:35:59 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,7 +196,6 @@ t_list *implemente_a(int argc, char **argv)
 
 	i = 0;
 	split_a = ft_split(argv[1], ' ');
-	stack_a = ft_lstnew(ft_atoi(split_a[i++]));
 	while(split_a[i])
 	{
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(split_a[i])));
