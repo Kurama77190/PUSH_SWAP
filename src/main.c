@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:46:19 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/13 18:54:23 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/14 00:46:09 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,37 +178,55 @@ bool	ft_is_space(char c)
 /* 	 	IMPLEMENTE STACK_A	   */
 /* *************************** */
 
-char	*ft_strjoin(char const *s1, char const *s2)
+size_t ft_argvlen(char **strs)
 {
-	size_t			i;
-	size_t			j;
-	char			*str;
+	size_t	len;
+	int		i;
 
-	i = 0;
-	j = 0;
-	if (!s1 || !s2)
-		return (NULL);
-	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
-	if (!str)
-		return (NULL);
-	while (s1[i])
+	len = 0;
+	i = 1;
+	while(strs[i])
 	{
-		str[i] = s1[i];
+		len = len + ft_strlen(strs[i]);
 		i++;
 	}
-	while (s2[j])
+	return (len);
+}
+
+
+char	*ft_strjoin(char **argv)
+{
+	int	i;
+	int	j;
+	int	index_join;
+	char *join;
+
+	i = 1;
+	index_join = 0;
+	join = malloc(sizeof(char) + (ft_argvlen(argv) * 2) + 1);
+	if (!join)
+		return (NULL);
+	while(argv[i])
 	{
-		str[i] = s2[j];
-		j++;
+		j = 0;
+		while(argv[i][j])
+		{
+			join[index_join] = argv[i][j];
+			index_join++;
+			j++;
+		}
+		join[index_join] = ' ';
+		index_join++;
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	join[index_join] = '\0';
+	return (join);
 }
 
 t_list *implemente_a(int argc, char **argv)
 {
-	(void)argc; // gerer le cas de plusieurs arguments et les concatener
+	if (argc > 2)
+		argv[1] = ft_strjoin(argv);
 	if(ft_only_space(argv[1]))
 		ft_exit();
 	char	**split_a;
@@ -220,17 +238,20 @@ t_list *implemente_a(int argc, char **argv)
 	stack_a = ft_lstnew(ft_atoi(split_a[i]));
 	while(split_a[++i])
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(split_a[i])));
+	if (argc > 2)
+		free(argv[1]);
 	ft_secure(split_a, stack_a);
 	free_split(split_a);
 	return (stack_a);
 }
 
-// DERNIERE ETAPE : gerer le cas de plusieurs arguments pour implementer la stack_a
-// NE PAS OUBLIER de rajouter les fonctions dans mon header
+/* *************************** */
+/* 	 	PARSING TERMINÉE	   */
+/* *************************** */
+
+// Ranger les fonctions dans le header.
 
 // la gestion de memoire est OK en cas d erreur !
-
-// prototype sous le main en commentaire a terminer !
 
 int main(int argc, char **argv)
 {
@@ -240,53 +261,3 @@ int main(int argc, char **argv)
 	ft_print_list(a);
 	ft_lstclear(&a);
 }
-//-----------------------------------------------------------------------
-
-// size_t	ft_strlenn(char *str)
-// {
-// 	size_t	i;
-
-// 	i = 0;
-// 	while(str[i])
-// 		i++;
-// 	return (i);
-// }
-
-// size_t ft_strslen(char **strs)
-// {
-// 	size_t	len;
-// 	int		i;
-
-// 	len = 0;
-// 	i = 0;
-// 	while(strs[i])
-// 	{
-// 		len = len + ft_strlenn(strs[i]) - ft_strlen;
-// 		i++;
-// 	}
-// 	return (len);
-// }
-
-
-
-
-// ft_strjoin(int argc, char **argv)
-// {
-// 	if (argc  > 2)
-// 	{
-// 		int	i;
-
-// 		i = argc;
-// 		while(i > 2)
-// 		{
-			
-// 		}
-		
-// 	}
-// }
-
-// int main (int argc, char **argv)
-// {
-// 	(void)argc;
-// 	printf("la taille de tous mes tableaux d arguments : %zu\n", ft_strslen(argv));
-// }
