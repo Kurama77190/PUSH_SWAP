@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 04:06:12 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/08 15:52:36 by sben-tay         ###   ########.fr       */
+/*   Created: 2024/02/14 13:45:06 by sben-tay          #+#    #+#             */
+/*   Updated: 2024/02/14 13:45:23 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew(int content)
+void    ft_lstclear(t_list **lst)
 {
-	t_list	*new;
+    t_list  *current;
+    t_list  *next;
 
-	new = malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+    if (lst == NULL || *lst == NULL)
+        return;
+
+    current = *lst;
+    while (current != NULL)
+    {
+        next = current->next;
+        free(current);
+        current = next;
+    }
+    *lst = NULL;
 }
-
-// int main ()
-// {
-// 	char c = 'n';
-// 	t_list *Zeub;
-// 	Zeub = ft_lstnew(&c);
-// printf("%c\n", *((char *)Zeub->content));
-// }

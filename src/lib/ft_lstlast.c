@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 15:46:19 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/14 14:32:40 by sben-tay         ###   ########.fr       */
+/*   Created: 2024/02/09 16:25:48 by sben-tay          #+#    #+#             */
+/*   Updated: 2024/02/14 13:59:00 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* *************************** */
-/* 	 	MAIN PROGRAMMER 	   */
-/* *************************** */
 
-int main(int argc, char **argv)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (argc == 1 || !argv[1][0])
-		return (0);
-	t_list *a = implemente_a(argc, argv);
-	ft_print_list(a);
-	ft_lstclear(&a);
+	if (lst == NULL)
+		return (NULL);
+	while (lst->next != NULL)
+	{
+		lst = lst->next;
+	}
+	return (lst);
 }

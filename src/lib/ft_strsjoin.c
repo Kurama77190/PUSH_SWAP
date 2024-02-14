@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_strsjoin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/09 16:25:48 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/09 16:25:57 by sben-tay         ###   ########.fr       */
+/*   Created: 2024/02/14 13:29:39 by sben-tay          #+#    #+#             */
+/*   Updated: 2024/02/14 13:31:28 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-t_list	*ft_lstlast(t_list *lst)
+char	*ft_strjoin(char **argv)
 {
-	if (lst == NULL)
+	int	i;
+	int	j;
+	int	index_join;
+	char *join;
+
+	i = 1;
+	index_join = 0;
+	join = malloc(sizeof(char) + (ft_argvlen(argv) * 2) + 1);
+	if (!join)
 		return (NULL);
-	while (lst->next != NULL)
+	while(argv[i])
 	{
-		lst = lst->next;
+		j = 0;
+		while(argv[i][j])
+		{
+			join[index_join] = argv[i][j];
+			index_join++;
+			j++;
+		}
+		join[index_join] = ' ';
+		index_join++;
+		i++;
 	}
-	return (lst);
+	join[index_join] = '\0';
+	return (join);
 }

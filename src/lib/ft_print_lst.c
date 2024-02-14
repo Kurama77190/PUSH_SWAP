@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_print_lst.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/29 18:11:51 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/01/29 18:11:57 by sben-tay         ###   ########.fr       */
+/*   Created: 2024/01/29 18:03:08 by sben-tay          #+#    #+#             */
+/*   Updated: 2024/02/14 13:59:15 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_print_list(t_list *test)
 {
-	size_t	i;
+	t_list *print = test;
 
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i])
+	while(print)
 	{
-		if (write(fd, &s[i], 1) == -1)
-			return ;
-		i++;
+		printf("%d ", print->content);
+		print = print->next;
 	}
+	printf("NULL\n");
 }

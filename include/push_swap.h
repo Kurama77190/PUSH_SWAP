@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:30:58 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/14 00:18:44 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:03:13 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,15 @@ typedef struct s_list
  	struct s_list	*prev;
 }					t_list;
 
+bool	is_sorted(t_list *stack_a);
+
+void	free_split(char **strs);
+
+t_list	*implemente_a(int argc, char **argv);
+
 char	*ft_strjoin(char **argv);
 
-size_t ft_argvlen(char **strs);
+size_t	ft_argvlen(char **strs);
 
 bool	ft_check_overflow(char *str, long long nb, int sign, size_t len);
 
@@ -43,13 +49,17 @@ bool	ft_is_digit(char **split);
 
 bool	ft_is_double(t_list	*stack_a);
 
-int		ft_atoi(char *str);
+bool	ft_is_space(char c);
 
-void	ft_exit(void);
+bool	ft_only_space(char *str);
+
+int		ft_atoi(char *str);
 
 char	**ft_split(char const *s, char c);
 
 void	ft_swap(int *a, int *b);
+
+void    ft_lstclear(t_list **lst);
 
 t_list	*ft_lstlast(t_list *lst);
 
@@ -62,5 +72,11 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 t_list	*ft_lstnew(int content);
 
 void	ft_putstr_fd(char *s, int fd);
+
+void	ft_secure(char **split, t_list *stack_a);
+
+void	ft_clear_error(char **split, t_list **stack_a);
+
+void	ft_exit(void);
 
 #endif

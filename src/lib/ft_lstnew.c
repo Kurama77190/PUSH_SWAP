@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 15:46:19 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/14 14:32:40 by sben-tay         ###   ########.fr       */
+/*   Created: 2023/11/14 04:06:12 by sben-tay          #+#    #+#             */
+/*   Updated: 2024/02/14 13:59:09 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* *************************** */
-/* 	 	MAIN PROGRAMMER 	   */
-/* *************************** */
-
-int main(int argc, char **argv)
+t_list	*ft_lstnew(int content)
 {
-	if (argc == 1 || !argv[1][0])
-		return (0);
-	t_list *a = implemente_a(argc, argv);
-	ft_print_list(a);
-	ft_lstclear(&a);
+	t_list	*new;
+
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }
