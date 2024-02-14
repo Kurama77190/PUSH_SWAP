@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:46:19 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/14 00:46:09 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/14 04:02:39 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -255,7 +255,7 @@ t_list *implemente_a(int argc, char **argv)
 
 int main(int argc, char **argv)
 {
-	if (argc == 1 || !argv[1][0])
+	if (argc == 1 || !argv[1][0] || )
 		return (0);
 	t_list *a = implemente_a(argc, argv);
 	ft_print_list(a);
