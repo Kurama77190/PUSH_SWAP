@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:46:19 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/14 14:32:40 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/14 17:06:36 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,22 @@
 /* *************************** */
 /* 	 	MAIN PROGRAMMER 	   */
 /* *************************** */
+
+/*								PARSING ERROR : 
+ - Si un arguments est = NULL; -> Error;
+ - les arguments separateur de mon split = isspace(char c) tester avec cette commande :
+
+
+$./push_swap "             
+
+
+
+
+
+
+7"
+
+*/
 
 int main(int argc, char **argv)
 {
