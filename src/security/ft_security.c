@@ -6,48 +6,46 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:27:43 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/14 16:49:59 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/15 23:51:16 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_secure(char **split, t_list *stack_a);
+void	ft_secure_memory(char **split, t_list *stack_a);
 void	ft_clear_error(char **split, t_list **stack_a);
+void	ft_secure_arguments(char **argv);
 void	ft_exit(void);
-void	free_split(char **strs);
 
 /* *********************************** */
-/* 	 	IMPLEMENTE STACK_A_SECURITY	   */
+/* 	 	IMPLEMENT STACK_A_SECURITY	   */
 /* *********************************** */
 
 t_list *implemente_a(int argc, char **argv)
 {
 	if (argc > 2)
 		argv[1] = ft_strjoin(argv);
-	if(ft_only_space(argv[1]))
-		ft_exit();
 	char	**split_a;
 	t_list	*stack_a;
 	int		i;
 
 	i = 0;
-	split_a = ft_split(argv[1], ' ');
+	split_a = ft_split(argv[1]);
 	stack_a = ft_lstnew(ft_atoi(split_a[i]));
 	while(split_a[++i])
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(split_a[i])));
 	if (argc > 2)
 		free(argv[1]);
-	ft_secure(split_a, stack_a);
+	ft_secure_memory(split_a, stack_a);
 	free_split(split_a);
 	return (stack_a);
 }
 
 /* ********************************** */
-/* 	 IMPLEMENTE SECURITY - PARSING	  */
+/* 	      	 MEMORY SECURITY	 	  */
 /* ********************************** */
 
-void	ft_secure(char **split, t_list *stack_a)
+void	ft_secure_memory(char **split, t_list *stack_a)
 {
 	if(!ft_is_digit(split))
 		ft_clear_error(split, &stack_a);
@@ -79,17 +77,12 @@ void	ft_exit(void)
 	exit(EXIT_FAILURE);
 }
 
-void	free_split(char **strs)
-{
-	if (!strs)
-		return ;
-	int	i;
+/* ********************************** */
+/* 	       ARGUMENTS SECURITY 	      */
+/* ********************************** */
 
-	i = 0;
-	while(strs[i])
-	{
-		free(strs[i]);
-		i++;
-	}
-	free(strs);
+void	ft_secure_arguments(char **argv)
+{
+	if (ft_only_space(argv) || args_is_null(argv))
+		ft_exit();
 }

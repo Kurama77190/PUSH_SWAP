@@ -6,29 +6,15 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 13:24:31 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/14 13:26:06 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/15 22:55:48 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool	ft_is_space(char c)
-{
-	return (c == '\f' || c == '\n' || c == '\r' || c == '\t' || c == '\v' || c == 32);
-}
-
-bool	ft_only_space(char *str)
-{
-	int	i;
-	i = 0;
-	while(str[i])
-	{
-		if(!ft_is_space(str[i]))
-			return false;
-		i++;
-	}
-	return true;
-}
+/* *********************************** */
+/* 	 		 UTILS SECURITY	   		   */
+/* *********************************** */
 
 bool	is_sorted(t_list *stack_a)
 {
@@ -91,4 +77,40 @@ bool	ft_is_digit(char **split)
 		i++;
 	}
 	return true;
+}
+
+bool	ft_only_space(char **strs)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while(strs[i])
+	{
+		j = 0;
+		while(strs[i][j])
+		{
+			if(!ft_is_space(strs[i][j]))
+				return false;
+			j++;
+		}
+		i++;
+	}
+	return true;
+}
+
+bool	args_is_null(char **strs)
+{
+	int	i;
+
+	i = 1;
+	if (!strs[i][0])
+		return true;
+	while(strs[i])
+	{
+		if(!strs[i][0])
+			return true;
+		i++;
+	}
+	return false;
 }
