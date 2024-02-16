@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 04:05:25 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/13 15:13:06 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/16 16:13:09 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void	ft_lstadd_back(t_list **alst, t_list *new)
 	{
 		last = last->next;
 	}
-	last->prev = last;
 	last->next = new;
+	new->prev = last;
 }

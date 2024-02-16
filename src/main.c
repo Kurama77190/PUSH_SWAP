@@ -6,11 +6,12 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:46:19 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/16 02:15:11 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/16 16:18:42 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 /* *************************** */
 /* 		 MAIN PROGRAMME	       */
@@ -19,15 +20,32 @@
 int	main(int argc, char **argv)
 {
 	t_list	*a;
-	// t_list	*b;
+	t_list	*b;
 
 	if (argc == 1)
 		return (0);
 	ft_secure_arguments(argv);
 	a = implemente_a(argc, argv);
+	b = ft_lstnew(9);
+	ft_lstadd_back(&b,ft_lstnew(8));
+	ft_lstadd_back(&b,ft_lstnew(7));
+	
+	printf(" liste a : ");
 	ft_print_list(a);
-	ft_lstclear(&a);
+	printf(" liste b : ");
+	ft_print_list(b);
+
+	rotate_rr(&a,&b);
+
+	printf(" liste a : ");
+	ft_print_list(a);
+	printf(" liste b : ");
+	ft_print_list(b);
+
+	// ft_lstclear(&a);
+	// ft_lstclear(&b);
 }
+
 
 /* *************************** */
 /* 	      NOTE PROJECT	       */
