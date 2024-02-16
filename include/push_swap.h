@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:30:58 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/16 16:19:12 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/16 17:58:51 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ typedef struct s_list
 	struct s_list	*next;
  	struct s_list	*prev;
 }					t_list;
+
+void	reverse_rotate_a(t_list **a, bool flag);
+
+void	reverse_rotate_b(t_list **b, bool flag);
+
+void	reverse_rotate_rrr(t_list **a, t_list **b);
 
 void	rotate_rr(t_list **a, t_list **b);
 

@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:53:33 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/16 16:18:05 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/16 17:58:27 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,13 @@
 void	rotate_a(t_list **a, bool flag)
 {
 	t_list	*current;
-	t_list	*delete;
 
+	current = *a;
 	if (*a && a)
 	{
-		current = ft_lstlast(*a);
-		delete = current;
-		ft_lstadd_front(a, current);
-		delete->prev->next = NULL;
+		(*a) = (*a)->next;
+		current->next = NULL;
+		ft_lstadd_back(a, current);
 		print_commands("ra", flag);
 	}
 	else
@@ -42,14 +41,13 @@ void	rotate_a(t_list **a, bool flag)
 void	rotate_b(t_list **b, bool flag)
 {
 	t_list	*current;
-	t_list	*delete;
 
+	current = *b;
 	if (*b && b)
 	{
-		current = ft_lstlast(*b);
-		delete = current;
-		ft_lstadd_front(b, current);
-		delete->prev->next = NULL;
+		(*b) = (*b)->next;
+		current->next = NULL;
+		ft_lstadd_back(b, current);
 		print_commands("rb", flag);
 	}
 	else

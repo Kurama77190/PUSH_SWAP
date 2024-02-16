@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 15:30:58 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/16 15:53:09 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/16 16:48:50 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,3 @@ void	push_b(t_list **a, t_list **b, bool flag)
 	else
 		return ;
 }
-/*
-ra (rotate a) : Décale d’une position vers le haut tous les élements de la pile a.
-Le premier élément devient le dernier.
-rb (rotate b) : Décale d’une position vers le haut tous les élements de la pile b.
-Le premier élément devient le dernier.
-rr : ra et rb en même temps.
-rra (reverse rotate a) : Décale d’une position vers le bas tous les élements de
-la pile a. Le dernier élément devient le premier.
-rrb (reverse rotate b) : Décale d’une position vers le bas tous les élements de
-la pile b. Le dernier élément devient le premier.
-rrr : rra et rrb en même temps.
-7
-*/
