@@ -6,28 +6,31 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:46:19 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/16 00:19:26 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/16 02:15:11 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* *************************** */
-/* 	 	MAIN PROGRAMME	 	   */
+/* 		 MAIN PROGRAMME	       */
 /* *************************** */
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
+	t_list	*a;
+	// t_list	*b;
+
 	if (argc == 1)
 		return (0);
 	ft_secure_arguments(argv);
-	t_list *a = implemente_a(argc, argv);
+	a = implemente_a(argc, argv);
 	ft_print_list(a);
 	ft_lstclear(&a);
 }
 
 /* *************************** */
-/* 	 	  NOTE PROJECT	 	   */
+/* 	      NOTE PROJECT	       */
 /* *************************** */
 
 /*
@@ -36,11 +39,11 @@ int main(int argc, char **argv)
 */
 
 /* *************************** */
-/* 	 	  COMMANDS TEST	 	   */
+/* 		 COMMANDS TEST	       */
 /* *************************** */
 
 /*
-	- check error arguments : 
+	echo '- check error arguments :'
 
 	./push_swap
 	./push_swap "" "9 8 7"
@@ -52,9 +55,9 @@ int main(int argc, char **argv)
 	./push_swap "2147483648 2 3 4"
 	./push_swap "9223372036854775808 2 3 4"
 
-	- check valid arguments :
-	
-	./push_swap "9 8 7 
+	echo ' - check valid arguments : '
+
+	./push_swap "9 8 7
 	6"
 	./push_swap "  " 9 8 7 6 "  "
 	./push_swap 100 1 2 3 4""5 6

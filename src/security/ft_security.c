@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:27:43 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/15 23:51:16 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/16 02:13:15 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,21 @@ void	ft_secure_arguments(char **argv);
 void	ft_exit(void);
 
 /* *********************************** */
-/* 	 	IMPLEMENT STACK_A_SECURITY	   */
+/*     IMPLEMENT STACK_A_SECURITY      */
 /* *********************************** */
 
-t_list *implemente_a(int argc, char **argv)
+t_list	*implemente_a(int argc, char **argv)
 {
-	if (argc > 2)
-		argv[1] = ft_strjoin(argv);
 	char	**split_a;
 	t_list	*stack_a;
 	int		i;
 
+	if (argc > 2)
+		argv[1] = ft_strjoin(argv);
 	i = 0;
 	split_a = ft_split(argv[1]);
 	stack_a = ft_lstnew(ft_atoi(split_a[i]));
-	while(split_a[++i])
+	while (split_a[++i])
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(split_a[i])));
 	if (argc > 2)
 		free(argv[1]);
@@ -42,18 +42,18 @@ t_list *implemente_a(int argc, char **argv)
 }
 
 /* ********************************** */
-/* 	      	 MEMORY SECURITY	 	  */
+/* 		   	 MEMORY SECURITY	 	  */
 /* ********************************** */
 
 void	ft_secure_memory(char **split, t_list *stack_a)
 {
-	if(!ft_is_digit(split))
+	if (!ft_is_digit(split))
 		ft_clear_error(split, &stack_a);
 	else if (ft_is_atoi_overflow(split))
 		ft_clear_error(split, &stack_a);
-	else if(ft_is_double(stack_a))
+	else if (ft_is_double(stack_a))
 		ft_clear_error(split, &stack_a);
-	else if(is_sorted(stack_a))
+	else if (is_sorted(stack_a))
 	{
 		free_split(split);
 		ft_lstclear(&stack_a);
@@ -78,7 +78,7 @@ void	ft_exit(void)
 }
 
 /* ********************************** */
-/* 	       ARGUMENTS SECURITY 	      */
+/* 		    ARGUMENTS SECURITY 	      */
 /* ********************************** */
 
 void	ft_secure_arguments(char **argv)

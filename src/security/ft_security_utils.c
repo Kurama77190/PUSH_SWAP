@@ -6,14 +6,14 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 13:24:31 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/15 22:55:48 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/16 02:12:29 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* *********************************** */
-/* 	 		 UTILS SECURITY	   		   */
+/* 			  UTILS SECURITY	   	   */
 /* *********************************** */
 
 bool	is_sorted(t_list *stack_a)
@@ -21,14 +21,14 @@ bool	is_sorted(t_list *stack_a)
 	t_list	*sorted;
 
 	sorted = stack_a;
-	while(sorted->next)
+	while (sorted->next)
 	{
 		if (sorted->content < sorted->next->content)
 			sorted = sorted->next;
 		else
-			return false;
+			return (false);
 	}
-	return true;
+	return (true);
 }
 
 bool	ft_is_double(t_list *stack_a)
@@ -43,21 +43,21 @@ bool	ft_is_double(t_list *stack_a)
 		while (checker)
 		{
 			if (current->content == checker->content)
-				return true;
+				return (true);
 			checker = checker->next;
 		}
 		current = current->next;
 	}
-	return false;
+	return (false);
 }
 
 bool	ft_is_digit(char **split)
 {
-	if (!split)
-	return false;
 	int	i;
 	int	j;
 
+	if (!split)
+		return (false);
 	i = 0;
 	while (split[i])
 	{
@@ -66,17 +66,17 @@ bool	ft_is_digit(char **split)
 		{
 			j++;
 			if (split[i][j] == '\0')
-				return false;
+				return (false);
 		}
 		while (split[i][j])
 		{
 			if (split[i][j] < '0' || split[i][j] > '9')
-				return false;
+				return (false);
 			j++;
 		}
 		i++;
 	}
-	return true;
+	return (true);
 }
 
 bool	ft_only_space(char **strs)
@@ -85,18 +85,18 @@ bool	ft_only_space(char **strs)
 	int	j;
 
 	i = 1;
-	while(strs[i])
+	while (strs[i])
 	{
 		j = 0;
-		while(strs[i][j])
+		while (strs[i][j])
 		{
-			if(!ft_is_space(strs[i][j]))
-				return false;
+			if (!ft_is_space(strs[i][j]))
+				return (false);
 			j++;
 		}
 		i++;
 	}
-	return true;
+	return (true);
 }
 
 bool	args_is_null(char **strs)
@@ -105,12 +105,12 @@ bool	args_is_null(char **strs)
 
 	i = 1;
 	if (!strs[i][0])
-		return true;
-	while(strs[i])
+		return (true);
+	while (strs[i])
 	{
-		if(!strs[i][0])
-			return true;
+		if (!strs[i][0])
+			return (true);
 		i++;
 	}
-	return false;
+	return (false);
 }
