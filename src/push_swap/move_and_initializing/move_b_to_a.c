@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   move_b_to_a.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/31 12:22:28 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/19 18:25:40 by sben-tay         ###   ########.fr       */
+/*   Created: 2024/02/19 18:31:41 by sben-tay          #+#    #+#             */
+/*   Updated: 2024/02/19 18:38:34 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push_swap(t_list **a, t_list **b)
-{	
-	int	len_a;
+/* *************************** */
+/* 			MOVE_B_TO_A        */
+/* *************************** */
 
-	len_a = ft_lstsize(*a);
-	if (len_a-- > 3 && !is_sorted(*a))
-		push_b(a, b, true);
-	if (len_a-- > 3 && !is_sorted(*a))
-		push_b(a, b, true);
-	while (len_a-- > 3 && !is_sorted(*a))
-	{
-		init_nodes_a(*a, *b);
-		move_a_to_b(a, b);
-	}
-	Three_sort(a);
-	while (*b)
-	{
-		init_nodes_b(*a, *b);
-		move_b_to_a(a, b);
-	}
-	lst_index(*a);
-	min_on_top(a);
+void	move_b_to_a(t_list **a, t_list **b)
+{
+	prep_for_push(a, (*b)->target_node, 'a');
+	push_a(a, b, true);
 }
-

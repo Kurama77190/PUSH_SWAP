@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:30:58 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/18 22:18:15 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:44:06 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,34 @@ typedef struct s_list
 	struct s_list	*next;
  	struct s_list	*prev;
 }					t_list;
+
+void	move_a_to_b(t_list **a, t_list **b);
+
+void	prep_for_push(t_list **stack, t_list *top_node, char stack_name);
+
+void	rev_rotate_both(t_list **a, t_list **b, t_list *cheapest_node);
+
+void	rotate_both(t_list **a, t_list **b, t_list *cheapest_node);
+
+t_list	*get_cheapest(t_list *a);
+
+void	init_nodes_b(t_list *a, t_list *b);
+
+void	target_b(t_list *a, t_list *b);
+
+void	move_b_to_a(t_list **a, t_list **b);
+
+void	init_nodes_a(t_list *a, t_list *b);
+
+void	target_a(t_list *a, t_list *b);
+
+void	cost_analysis(t_list *a, t_list *b);
+
+void	set_cheapest(t_list *a);
+
+void	min_on_top(t_list **a);
+
+void	ft_push_swap(t_list **a, t_list **b);
 
 t_list	*find_smaller(t_list *a);
 
