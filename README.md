@@ -1,5 +1,5 @@
 <div align="center">
-  <img height="600" src="https://raw.githubusercontent.com/Kurama77190/PUSH_SWAP/main/img/LOGO%20PUSH_SWAP.jpg"  />
+  <img height="450" src="https://raw.githubusercontent.com/Kurama77190/PUSH_SWAP/main/img/LOGO%20PUSH_SWAP.jpg"  />
 </div>
 
 ###
