@@ -4,7 +4,7 @@
 
 ###
 
-<h3 align="center">Construction en cours ... 80 %</h3>
+<h3 align="center">Construction en cours ... 99.9 %</h3>
 
 ###
 
