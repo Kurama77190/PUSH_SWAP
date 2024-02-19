@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:27:43 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/16 15:19:33 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/18 23:39:06 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ void	ft_secure_memory(char **split, t_list *stack_a)
 		ft_clear_error(split, &stack_a);
 	else if (ft_is_double(stack_a))
 		ft_clear_error(split, &stack_a);
-	// else if (is_sorted(stack_a))
-	// {
-	// 	free_split(split);
-	// 	ft_lstclear(&stack_a);
-	// 	ft_putstr_fd("is sorted !\n", 1);
-	// 	exit(EXIT_SUCCESS);
-	// }
+	else if (is_sorted(stack_a))
+	{
+		free_split(split);
+		ft_lstclear(&stack_a);
+		ft_putstr_fd("is sorted !\n", 1);
+		exit(EXIT_SUCCESS);
+	}
 	else
 		return ;
 }

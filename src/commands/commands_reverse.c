@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:13:36 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/16 17:52:04 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/17 16:56:52 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,22 @@
 
 void	reverse_rotate_a(t_list **a, bool flag)
 {
-	t_list	*current;
-	t_list	*delete;
+	t_list	*last;
+	t_list	*second_last;
 
-	if (*a && a)
+	if (*a && (*a)->next)
 	{
-		current = ft_lstlast(*a);
-		delete = current;
-		ft_lstadd_front(a, current);
-		delete->prev->next = NULL;
-		print_commands("ra", flag);
+		last = *a;
+		second_last = NULL;
+		while (last->next != NULL)
+		{
+			second_last = last;
+			last = last->next;
+		}
+		if (second_last)
+			second_last->next = NULL;
+		ft_lstadd_front(a, last);
+		print_commands("rra", flag);
 	}
 	else
 		return ;
@@ -41,16 +47,22 @@ void	reverse_rotate_a(t_list **a, bool flag)
 
 void	reverse_rotate_b(t_list **b, bool flag)
 {
-	t_list	*current;
-	t_list	*delete;
+	t_list	*last;
+	t_list	*second_last;
 
-	if (*b && b)
+	if (*b && (*b)->next)
 	{
-		current = ft_lstlast(*b);
-		delete = current;
-		ft_lstadd_front(b, current);
-		delete->prev->next = NULL;
-		print_commands("rb", flag);
+		last = *b;
+		second_last = NULL;
+		while (last->next != NULL)
+		{
+			second_last = last;
+			last = last->next;
+		}
+		if (second_last)
+			second_last->next = NULL;
+		ft_lstadd_front(b, last);
+		print_commands("rrb", flag);
 	}
 	else
 		return ;
@@ -62,7 +74,7 @@ void	reverse_rotate_b(t_list **b, bool flag)
 
 void	reverse_rotate_rrr(t_list **a, t_list **b)
 {
-	if (*a && *b)
+	if (*a && (*a)->next && *b && (*b)->next)
 	{
 		reverse_rotate_a(a, 0);
 		reverse_rotate_a(b, 0);

@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 13:24:31 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/16 02:12:29 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/18 23:25:26 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ bool	is_sorted(t_list *stack_a)
 	sorted = stack_a;
 	while (sorted->next)
 	{
-		if (sorted->content < sorted->next->content)
-			sorted = sorted->next;
-		else
+		if (sorted->content > sorted->next->content)
 			return (false);
+		sorted = sorted->next;
 	}
 	return (true);
 }
