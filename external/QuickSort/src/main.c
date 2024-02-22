@@ -6,11 +6,11 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:46:19 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/21 00:16:36 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/22 15:48:44 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 void	ft_push_swap(t_list **a, t_list **b);
 void	sort_five(t_list **a, t_list **b);
@@ -49,11 +49,7 @@ int	main(int argc, char **argv)
 {
 	t_list	*a;
 	t_list	*b;
-	t_push	push;
-	
 
-	push.next = 0;
-	printf("push.next = %d\n", push.next);
 	a = NULL;
 	b = NULL;
 	if (argc == 1 || argc == (2	&& !argv[1][0]))
@@ -82,8 +78,8 @@ void	ft_push_swap(t_list **a, t_list **b)
 		sort_three(a);
 	else if (count == 4 || count == 5)
 		sort_five(a, b);
-	// else if (count > 5)
-	// 	big_sort(a, b, count);
+	else if (count > 5)
+		big_sort(a, b, count);
 }
 
 void	sort_three(t_list **a)
@@ -107,26 +103,73 @@ void	sort_five(t_list **a, t_list **b)
 		push_a(a, b, true);
 }
 
+void	big_sort(t_list **a, t_list **b, int count)
+{
+	t_push	push;
+
+	set_index(a);
+	push.next = find_smaller(a)->index;
+	push.max = find_bigger(a)->index;
+	push.mid = push.max / 2 + push.next;
+	push.flag = 0;
+	begin_sorting(a, b, &push, count);
+	while (!(check_sorting_a(a, count)))
+	{
+		if (ft_lstsize(*b) == 0)
+			push_b(a, b, &push);
+		else
+			push_a(a, b, &push);
+	}
+}
+
+void	begin_sorting(t_list **a, t_list **b, t_push *push, int count)
+{
+	int	i;
+
+	i = -1;
+	while (++i < count)
+	{
+		if ((*a)->index <= push->mid)
+			pb(a, b);
+		else
+		{
+			if (ft_lstsize(*b) > 1 && (((*b)->index) < (push->mid / 2)))
+				rr(a, b);
+			else
+				ra(a);
+		}
+	}
+	push->max = push->mid;
+	push->mid = (push->max - push->next) / 2 + push->next;
+	push->flag++;
+}
+
+//================================ESSAYER=========================================
+
+void	find_next(t_list **a, t_list **b, t_push *push)
+{
+	if (ft_lstsize(*b) > 0 && ((*b)->index == push->next))
+		pa(a, b);
+	else if ((*a)->index == push->next)
+	{
+		(*a)->flag = -1;
+		ra(a);
+		push->next++;
+	}
+	else if ((ft_lstsize(*b)) > 2
+		&& ft_lstlast(*b)->index == push->next)
+		rrb(b);
+	else if ((*a)->next->index == push->next)
+		sa(a);
+	else if ((ft_lstsize(*a)) > 1 && ((*a)->next->index == push->next)
+		&& ((*b)->next->index == push->next + 1))
+		ss(a, b);
+	else
+		return ;
+	find_next(a, b, push);
+}
 
 
-// void	big_sort(t_list **a, t_list **b, int count)
-// {
-// 	t_pull	push;
-
-// 	set_index(a);
-// 	push.next = find_smaller(a)->index;
-// 	push.max = find_smaller(a)->index;
-// 	push.mid = push.max / 2 + push.next;
-// 	push.flag = 0;
-// 	begin_sorting(a, b, &push, count);
-// 	while (!(check_sorting_a(a, count)))
-// 	{
-// 		if (ft_lstsize(*b) == 0)
-// 			push_b(a, b, &push);
-// 		else
-// 			push_a(a, b, &push);
-// 	}
-// }
 
 /* *************************** */
 /* 			HELPERS     	   */
@@ -199,6 +242,34 @@ int	check_pos(t_list **stack, t_list *min)
 		tmp = tmp->next;
 	}
 	return (i);
+}
+
+void	set_index(t_list **a)
+{
+	t_list			*tmp;
+	t_list			*min_list;
+	long long int	min;
+	int				i;
+	int				j;
+
+	i = count_lst(a);
+	j = 0;
+	while (j < i)	
+	{
+		min = LLONG_MAX;
+		tmp = *a;
+		while (tmp)
+		{
+			if ((tmp->content < min) /*&& (tmp->index == -1)*/)
+			{
+				min = tmp->content;
+				min_list = tmp;
+			}
+			tmp = tmp->next;
+		}
+		min_list->index = j;
+		j++;
+	}
 }
 
 /* *************************** */

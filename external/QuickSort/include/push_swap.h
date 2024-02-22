@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:30:58 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/21 00:21:03 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/22 15:27:27 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ int		ft_atoi(char *str);
 char	**ft_split(char const *s);
 void	ft_swap(int *a, int *b);
 void    ft_lstclear(t_list **lst);
-void	ft_lstadd_back(t_list **alst, t_list *new);
+void	ft_lstadd_back(t_list **alst, t_list *nw);
 void	ft_print_list(t_list *test);
-void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *nw);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(int content);
 t_list	*ft_lstcopy(t_list *lst);
