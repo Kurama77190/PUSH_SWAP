@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:46:19 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/19 19:00:26 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/27 16:25:06 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,43 @@
 	RANDOM GENERATOR URL : https://www.calculatorsoup.com/calculators/statistics/random-number-generator.php
 */
 
-int	main(int argc, char **argv)
-{
-	t_list	*a;
-	t_list	*b;
+// int	main(int argc, char **argv)
+// {
+// 	t_list	*a;
+// 	t_list	*b;
 
-	a = NULL;
-	b = NULL;
-	if (argc == 1 || argc == (2	&& !argv[1][0]))
-		return (0);
-	ft_secure_arguments(argv);
-	a = implemente_a(argc, argv);
-	if (!is_sorted(a))
+// 	a = NULL;
+// 	b = NULL;
+// 	if (argc == 1 || argc == (2	&& !argv[1][0]))
+// 		return (0);
+// 	ft_secure_arguments(argv);
+// 	a = implemente_a(argc, argv);
+// 	ft_print_list(a);
+// 	if (!is_sorted(a))
+// 	{
+// 		if (ft_lstsize(a) == 2)
+// 			swap_a(&a, 1);
+// 		else if (ft_lstsize(a) == 3)
+// 			Three_sort(&a);
+// 		else
+// 			ft_push_swap(&a, &b);
+// 	}
+// 	ft_print_list(a);
+// 	ft_lstclear(&a);
+// 	ft_lstclear(&b);
+// }
+
+int main (void)
+{
+	char *a = " 1 2 3 4 5 6 7 8 9";
+	char **test = ft_split(a);
+	int i = 0;
+	while (test[i])
 	{
-		if (ft_lstsize(a) == 2)
-			swap_a(&a, 1);
-		else if (ft_lstsize(a) == 3)
-			Three_sort(&a);
-		else
-			ft_push_swap(&a, &b);
+		ft_putstr_fd(test[i], 1);
+		i++;
 	}
-	ft_lstclear(&a);
-	ft_lstclear(&b);
+	free_split(test);
 }
 
 /* *************************** */
