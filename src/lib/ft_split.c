@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:58:37 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/27 16:26:39 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/28 13:54:53 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ char	**ft_split(char const *s)
 	tab = malloc(sizeof(char *) * (ft_nombremot(str) + 1));
 	if (!tab)
 		return (NULL);
-	ft_ajoutdesmots(tab, str, i);
 	if (!ft_ajoutdesmots(tab, str, i))
 	{
 		ft_malloc_error(tab);
@@ -104,8 +103,7 @@ bool	ft_ajoutdesmots(char **tab, char *str, int i)
 				i++;
 				k++;
 			}
-			tab[j][k] = '\0';
-			j++;
+			tab[j++][k] = '\0';
 		}
 	}
 	tab[j] = NULL;

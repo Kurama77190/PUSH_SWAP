@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:46:19 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/27 16:25:06 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/02/28 18:16:26 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,60 +16,30 @@
 /* 			MAIN PROGRAMME		*/
 /* *************************** */
 
-/*
-	return 'n' size of instructions for sorting 'x' number values:
-
-	if x 3 then n <= 3
-	if x 5 then n <= 12
-	if x 100 then n < 700
-	if x 500 then n < 5500
-*/
-/*
-	for 500 n = 5341;
-	for 100 n = 591;
-	for 5 n = 9;
-	FOR 3 n = 1;
-
-	RANDOM GENERATOR URL : https://www.calculatorsoup.com/calculators/statistics/random-number-generator.php
-*/
-
-// int	main(int argc, char **argv)
-// {
-// 	t_list	*a;
-// 	t_list	*b;
-
-// 	a = NULL;
-// 	b = NULL;
-// 	if (argc == 1 || argc == (2	&& !argv[1][0]))
-// 		return (0);
-// 	ft_secure_arguments(argv);
-// 	a = implemente_a(argc, argv);
-// 	ft_print_list(a);
-// 	if (!is_sorted(a))
-// 	{
-// 		if (ft_lstsize(a) == 2)
-// 			swap_a(&a, 1);
-// 		else if (ft_lstsize(a) == 3)
-// 			Three_sort(&a);
-// 		else
-// 			ft_push_swap(&a, &b);
-// 	}
-// 	ft_print_list(a);
-// 	ft_lstclear(&a);
-// 	ft_lstclear(&b);
-// }
-
-int main (void)
+int	main(int argc, char **argv)
 {
-	char *a = " 1 2 3 4 5 6 7 8 9";
-	char **test = ft_split(a);
-	int i = 0;
-	while (test[i])
+	t_list	*a;
+	t_list	*b;
+
+	a = NULL;
+	b = NULL;
+	if (argc == 1 || argc == (2	&& !argv[1][0]))
+		return (0);
+	ft_secure_arguments(argv);
+	a = implemente_a(argc, argv);
+	ft_print_list(a);
+	if (!is_sorted(a))
 	{
-		ft_putstr_fd(test[i], 1);
-		i++;
+		if (ft_lstsize(a) == 2)
+			swap_a(&a, 1);
+		else if (ft_lstsize(a) == 3)
+			Three_sort(&a);
+		else
+			ft_push_swap(&a, &b);
 	}
-	free_split(test);
+	ft_print_list(a);
+	ft_lstclear(&a);
+	ft_lstclear(&b);
 }
 
 /* *************************** */
@@ -79,6 +49,7 @@ int main (void)
 /*
 	- PARSING SECURITY OK !
 	- MEMORY MANAGEMENT OK !
+	- SEGCHECK OK !
 	- INDEXATION OK !
 	- PRE_SORT OK !
 	- PUSH IN STACK B THE SMALLER THAN THE BIGGEST ELLEMENT THEN PRE_SORT ALSO BIGGEST ELEMENT THAN THE BIGGEST ELEMENT. 
@@ -92,7 +63,19 @@ int main (void)
 	- PUSH_SWAP VALIDED, NOW GO CHECKER !
 	- CHECKER VALIDED !
 	- NOW GO STORE FONCTIONS.
+
+======================================================================================================================
+
+	return 'n' size of instructions for sorting 'x' number values:
+
+	if x 3 then n <= 3
+	if x 5 then n <= 12
+	if x 100 then n < 700
+	if x 500 then n < 5500
+
+	RANDOM GENERATOR URL : https://www.calculatorsoup.com/calculators/statistics/random-number-generator.php
 */
+
 
 /* *************************** */
 /* 		COMMANDS TEST ERROR		*/
