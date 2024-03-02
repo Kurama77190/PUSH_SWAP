@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:30:58 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/19 18:44:06 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/03/02 11:47:11 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,8 +139,6 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
 
 t_list	*ft_lstnew(int content);
-
-t_list	*ft_lstcopy(t_list *lst);
 
 void	lst_index(t_list *a);
 
