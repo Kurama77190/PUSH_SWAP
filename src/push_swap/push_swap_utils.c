@@ -6,13 +6,13 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:58:52 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/19 18:12:54 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/03/05 16:41:28 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	Three_sort(t_list **a)
+void	three_sort(t_list **a)
 {
 	t_list	*bigger_node;
 
@@ -39,7 +39,6 @@ t_list	*find_bigger(t_list *a)
 		{
 			max = a->content;
 			bigger = a;
-
 		}
 		a = a->next;
 	}
@@ -63,24 +62,24 @@ t_list	*find_smaller(t_list *a)
 		}
 		a = a->next;
 	}
-	return (smaller); 
+	return (smaller);
 }
 
 void	min_on_top(t_list **a)
 {
-	while((*a)->content != find_smaller(*a)->content)
+	while ((*a)->content != find_smaller(*a)->content)
 	{
 		if (find_smaller(*a)->above_median)
 			rotate_a(a, true);
 		else
 			reverse_rotate_a(a, true);
-	}	
+	}
 }
 
 void	lst_index(t_list *a)
 {
-	int		i;
-	int		median;
+	int	i;
+	int	median;
 
 	i = 0;
 	if (!a)

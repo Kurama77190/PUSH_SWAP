@@ -6,15 +6,15 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:53:33 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/17 16:46:02 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/03/05 16:48:30 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*
-	ra (rotate a) : Décale d’une position vers le haut tous les élements de la pile a.
-	Le premier élément devient le dernier.
+	ra (rotate a) : Décale d’une position vers le haut tous les \
+	 élements de la pile a. Le premier élément devient le dernier.
 */
 
 void	rotate_a(t_list **a, bool flag)
@@ -34,8 +34,8 @@ void	rotate_a(t_list **a, bool flag)
 }
 
 /*
-	rb (rotate b) : Décale d’une position vers le haut tous les élements de la pile b.
-	Le premier élément devient le dernier.
+	rb (rotate b) : Décale d’une position vers le haut tous les \
+	 élements de la pile b. Le premier élément devient le dernier.
 */
 
 void	rotate_b(t_list **b, bool flag)

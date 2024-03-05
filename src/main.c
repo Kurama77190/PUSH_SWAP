@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:46:19 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/28 18:16:26 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/03/05 16:54:12 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 		if (ft_lstsize(a) == 2)
 			swap_a(&a, 1);
 		else if (ft_lstsize(a) == 3)
-			Three_sort(&a);
+			three_sort(&a);
 		else
 			ft_push_swap(&a, &b);
 	}

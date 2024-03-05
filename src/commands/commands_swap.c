@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:47:31 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/17 21:23:49 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/03/05 16:49:04 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	swap_ss(t_list **a, t_list **b)
 }
 
 /* *********************************** */
-/* 			COMMANDS UTILS  			   */
+/* 			COMMANDS UTILS  		   */
 /* *********************************** */
 
 void	print_commands(char *str, bool flag)
@@ -88,7 +88,7 @@ void	print_commands(char *str, bool flag)
 
 void	ft_swap(int *a, int *b)
 {
-	int tmp;
+	int	tmp;
 
 	tmp = *a;
 	*a = *b;

@@ -2,16 +2,4 @@
     "[c]": {
         "editor.defaultFormatter": "keyhr.42-c-format"
     },
-    "files.associations": {
-        "push_swap.h": "c",
-        "optional": "c",
-        "ratio": "c",
-        "system_error": "c",
-        "array": "c",
-        "functional": "c",
-        "tuple": "c",
-        "type_traits": "c",
-        "utility": "c",
-        "variant": "c"
-    },
 }

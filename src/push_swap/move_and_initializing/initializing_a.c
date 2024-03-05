@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 18:16:35 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/19 18:33:13 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/03/05 16:45:27 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	cost_analysis(t_list *a, t_list *b);
 void	set_cheapest(t_list *a);
 
 /* *************************** */
-/* 	  INIT_NODES_A & UTILS	   */
+/* 	   INIT_NODES_A & UTILS    */
 /* *************************** */
 
 void	init_nodes_a(t_list *a, t_list *b)
@@ -30,14 +30,14 @@ void	init_nodes_a(t_list *a, t_list *b)
 }
 
 /* **************************** */
-/* 			  HELPERS     		*/
+/* 			HELPERS     		*/
 /* **************************** */
 
 void	target_a(t_list *a, t_list *b)
 {
 	t_list	*current;
 	t_list	*target;
-	long 	best_index;
+	long	best_index;
 
 	while (a)
 	{
@@ -45,8 +45,7 @@ void	target_a(t_list *a, t_list *b)
 		current = b;
 		while (current)
 		{
-			if (current->content < a->content \
-			&& current->content > best_index)
+			if (current->content < a->content && current->content > best_index)
 			{
 				best_index = current->content;
 				target = current;
@@ -60,10 +59,11 @@ void	target_a(t_list *a, t_list *b)
 		a = a->next;
 	}
 }
+
 void	cost_analysis(t_list *a, t_list *b)
 {
-	int		len_a;
-	int		len_b;
+	int	len_a;
+	int	len_b;
 
 	len_a = ft_lstsize(a);
 	len_b = ft_lstsize(b);
@@ -79,6 +79,7 @@ void	cost_analysis(t_list *a, t_list *b)
 		a = a->next;
 	}
 }
+
 void	set_cheapest(t_list *a)
 {
 	long	cheapest_value;

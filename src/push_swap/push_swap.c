@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:22:28 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/19 18:25:40 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/03/05 16:42:32 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_push_swap(t_list **a, t_list **b)
 		init_nodes_a(*a, *b);
 		move_a_to_b(a, b);
 	}
-	Three_sort(a);
+	three_sort(a);
 	while (*b)
 	{
 		init_nodes_b(*a, *b);
@@ -35,4 +35,3 @@ void	ft_push_swap(t_list **a, t_list **b)
 	lst_index(*a);
 	min_on_top(a);
 }
-
