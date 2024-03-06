@@ -6,14 +6,14 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:22:28 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/03/05 16:42:32 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/03/06 21:34:55 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 void	ft_push_swap(t_list **a, t_list **b)
-{	
+{
 	int	len_a;
 
 	len_a = ft_lstsize(*a);
