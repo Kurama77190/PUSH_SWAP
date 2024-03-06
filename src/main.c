@@ -6,7 +6,7 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:46:19 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/03/05 16:54:12 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/03/06 20:40:34 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_secure_arguments(argv);
 	a = implemente_a(argc, argv);
-	ft_print_list(a);
 	if (!is_sorted(a))
 	{
 		if (ft_lstsize(a) == 2)
@@ -37,7 +36,6 @@ int	main(int argc, char **argv)
 		else
 			ft_push_swap(&a, &b);
 	}
-	ft_print_list(a);
 	ft_lstclear(&a);
 	ft_lstclear(&b);
 }
