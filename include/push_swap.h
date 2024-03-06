@@ -6,14 +6,13 @@
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:30:58 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/03/05 16:52:08 by sben-tay         ###   ########.fr       */
+/*   Updated: 2024/03/06 20:00:52 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../external/PRINTF/ft_printf.h"
 # include <limits.h>
 # include <stdbool.h>
 # include <stdio.h>
@@ -95,8 +94,6 @@ void				print_commands(char *str, bool flag);
 
 bool				is_sorted(t_list *stack_a);
 
-void				ft_sortlist(t_list *a);
-
 void				free_split(char **strs);
 
 t_list				*implemente_a(int argc, char **argv);
@@ -141,6 +138,8 @@ void				ft_lstadd_front(t_list **lst, t_list *new);
 t_list				*ft_lstlast(t_list *lst);
 
 t_list				*ft_lstnew(int content);
+
+size_t				ft_strlen(const char *str);
 
 void				lst_index(t_list *a);
 
