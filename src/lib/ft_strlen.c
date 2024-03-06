@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sortlist.c                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sben-tay <sben-tay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 23:20:10 by sben-tay          #+#    #+#             */
-/*   Updated: 2024/02/17 00:01:30 by sben-tay         ###   ########.fr       */
+/*   Created: 2023/11/14 04:07:57 by sben-tay          #+#    #+#             */
+/*   Updated: 2023/12/04 17:21:54 by sben-tay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "printf.h"
 
-void	ft_sortlist(t_list *a)
+size_t	ft_strlen(const char *str)
 {
-	t_list	*current;
-	t_list	*sort;
+	size_t	i;
 
-	current = a;
-	while (current->next)
+	i = 0;
+	while (str[i])
 	{
-		sort = a;
-		while (sort->next)
-		{
-			if (sort->content > sort->next->content)
-				ft_swap(&sort->content, &sort->next->content);
-			sort = sort->next;
-		}
-		current = current->next;
+		i++;
 	}
+	return (i);
 }
+
+// int main (int argc, char **argv)
+// {
+// 	(void) argc;
+// 	printf("La taille de mon string est de %d", ft_strlen(argv[1]));
+// }
