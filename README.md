@@ -16,7 +16,7 @@
 - [Remerciements](#remerciements)
 
 ## Introduction
-Le projet `Push_Swap` est une implémentation efficace de l'algorithme de tri "TurkSort", spécialement conçue pour le challenge de tri du même nom. L'objectif est de trier des données sur une pile, en utilisant le moins de mouvements possibles, et ce, en se limitant à un ensemble d'opérations prédéfinies.
+Le projet `Push_Swap` est une implémentation efficace de l'algorithme de tri "TurkSort", spécialement conçue pour le challenge de tri du même nom. L'objectif est de trier des données sur une pile à l'aide d'une seconde et unqiue pile, en utilisant le moins de mouvements possibles, et ce, en se limitant à un ensemble d'opérations prédéfinies.
 
 <div align="center">
   <img height="150" src="https://raw.githubusercontent.com/Kurama77190/PUSH_SWAP/main/img/Capture.PNG"  />
